@@ -8,7 +8,7 @@ import time
 
 class Bot(commands.Bot):
     def __init__(self):
-        super().__init__(token='0bj4dcmmqsttdd8fzug6jx3xweg3uf', prefix='!', initial_channels=['zyrex1503'])
+        super().__init__(token='', prefix='!', initial_channels=['zyrex1503'])
         self.ns_count = self.load_ns_count()
         self.wp_count = self.load_wp_count()
         self.nt_count = self.load_nt_count()
