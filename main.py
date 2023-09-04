@@ -8,7 +8,7 @@ import time
 
 class Bot(commands.Bot):
     def __init__(self):
-        super().__init__(token='', prefix='!', initial_channels=['zyrex1503'])
+        super().__init__(token='[YOUR_BOT_TOKEN]', prefix='!', initial_channels=['zyrex1503'])
         self.ns_count = self.load_ns_count()
         self.wp_count = self.load_wp_count()
         self.nt_count = self.load_nt_count()
@@ -23,9 +23,9 @@ class Bot(commands.Bot):
 
     async def event_message(self, message):
         if message and message.author:
-            with open('C:\\Users\\muell\\OneDrive\\Desktop\\Zyrexbot Twitch\\messages.txt', 'a', encoding='utf-8') as f:
+            with open('[PATH_TO_MESSAGE_TXT], 'a', encoding='utf-8') as f:
                 f.write(f'{message.author.name}: {message.content} ({datetime.datetime.now()})\n')
-            line_count = sum(1 for line in open('C:\\Users\\muell\\OneDrive\\Desktop\\Zyrexbot Twitch\\messages.txt', 'r', encoding='utf-8'))
+            line_count = sum(1 for line in open('[PATH_TO_MESSAGE_TXT]', 'r', encoding='utf-8'))
             if line_count % 20 == 0:
                 print("This is an automated message")
             
@@ -76,13 +76,13 @@ class Bot(commands.Bot):
         return 0
 
     def save_wp_count(self):
-        file_path = os.path.join(os.getcwd(), r'C:\Users\muell\OneDrive\Desktop\Zyrexbot Twitch\wp_count.txt')
+        file_path = os.path.join(os.getcwd(), r'[PATH_TO_WP_COUNT_TXT]')
         with open(file_path, 'w') as f:
             f.write(str(self.wp_count))
         print(f"Saved wp_count to {file_path}")
 
     def load_wp_count(self):
-        file_path = os.path.join(os.getcwd(), r'C:\Users\muell\OneDrive\Desktop\Zyrexbot Twitch\wp_count.txt')
+        file_path = os.path.join(os.getcwd(), [PATH_TO_WP_COUNT_TXT]')
         if os.path.exists(file_path):
             with open(file_path, 'r') as f:
                 content = f.read()
@@ -92,13 +92,13 @@ class Bot(commands.Bot):
         return 0
 
     def save_nt_count(self):
-        file_path = os.path.join(os.getcwd(), r'C:\Users\muell\OneDrive\Desktop\Zyrexbot Twitch\nt_count.txt')
+        file_path = os.path.join(os.getcwd(), r'[PATH_TO_NT_COUNT_TXT]')
         with open(file_path, 'w') as f:
             f.write(str(self.nt_count))
         print(f"Saved nt_count to {file_path}")
 
     def load_nt_count(self):
-        file_path = os.path.join(os.getcwd(), r'C:\Users\muell\OneDrive\Desktop\Zyrexbot Twitch\nt_count.txt')
+        file_path = os.path.join(os.getcwd(), r'[PATH_TO_NT_COUNT_TXT]')
         if os.path.exists(file_path):
             with open(file_path, 'r') as f:
                 content = f.read()
